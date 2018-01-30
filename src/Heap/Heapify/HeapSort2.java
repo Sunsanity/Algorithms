@@ -3,6 +3,7 @@ package Heap.Heapify;
 import Heap.ShiftDown.MaxHeap;
 
 /**
+ * 复习类
  * Created by SJW on 2017/7/18.
  * 利用堆做排序(升级版生成堆得方式)
  * 此类调用MaxHeap中的传入一个数组的构造函数生成一个堆

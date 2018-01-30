@@ -3,6 +3,7 @@ package BinarySearchTree.BinarySearchTreeRemoveMinAndMax;
 import java.util.LinkedList;
 
 /**
+ * 复习类
  * Created by SJW on 2017/7/26.
  * 二分搜索树实现
  * contain和search方法(搜寻节点)
@@ -194,7 +195,7 @@ public class BST<Key extends Comparable<Key>,Value> {
      * @param node 想插入的目标节点
      * @param key 键
      * @param value 值
-     * @return 新插入节点
+     * @return 新二叉树的根节点
      * 如果参数的node=null的话说明已经没有子节点可以比较，可以直接返回一个新建的node节点
      * 如果key比目标节点key小，往左下方放，否则右下方放，相等的话就替换目标节点的元素值
     */

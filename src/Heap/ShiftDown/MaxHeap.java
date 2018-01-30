@@ -26,7 +26,7 @@ public class MaxHeap<Item extends Comparable> {
     /**
      * 升级版构造方法(通过从最后一个非叶子节点的元素开始调用shiftDown方法调换元素位置，得到一个最大堆的数组实现，这种方式比一个一个插入堆数组的方式高效)
      */
-    public MaxHeap(Item array[]){
+    public MaxHeap(Item[] array){
         int length = array.length;
         //生成一个长度为length+1的数组，因为0号索引不用
         data = (Item[])new Comparable[length+1];
@@ -119,7 +119,7 @@ public class MaxHeap<Item extends Comparable> {
         while (k*2 <= count){
             //将要交换的目标索引值
             int j = 2*k;
-            //如果右节点比左节点还打的话，目标索引值赋值为右节点
+            //如果右节点比左节点还大的话，目标索引值赋值为右节点
             if (j+1 <= count && data[j+1].compareTo(data[j])>0){
                 j++;
             }
