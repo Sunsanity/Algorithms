@@ -204,7 +204,7 @@ public class Test {
     //输入一个链表，输出该链表中倒数第k个结点。 END
 
     //定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。   START
-    Stack<Integer> stack = new Stack<Integer>();
+    /*Stack<Integer> stack = new Stack<Integer>();
 
     public void push(int a){
         stack.push(a);
@@ -227,13 +227,13 @@ public class Test {
             }
         }
         return min;
-    }
+    }*/
     //定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。   END
 
     //数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。
     //由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。 START
 
-    public int MoreThanHalfNum_Solution(int[] array){
+    /*public int MoreThanHalfNum_Solution(int[] array){
         int length = array.length;
         if (length<1)
             return 0;
@@ -249,14 +249,14 @@ public class Test {
             return num;
         }
         return 0;
-    }
+    }*/
     //数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。
     //由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。 END
 
 
     //求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
     //但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。  START
-    public int NumberOf1Between1AndN_Solution(int n) {
+    /*public int NumberOf1Between1AndN_Solution(int n) {
         int count = 0;
         while(n>0){
             String str = String.valueOf(n);
@@ -269,7 +269,79 @@ public class Test {
             n--;
         }
         return count;
-    }
+    }*/
     //求出1~13的整数中1出现的次数,并算出100~1300的整数中1出现的次数？为此他特别数了一下1~13中包含1的数字有1、10、11、12、13因此共出现6次,
     //但是对于后面问题他就没辙了。ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数。  END
+
+    //输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+    //例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。    START
+    /*public String PrintMinNumber(int[] numbers){
+        String result = "";
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<numbers.length;i++){
+            list.add(numbers[i]);
+        }
+        Collections.sort(list,new Comparator<Integer>(){
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                String str1 = o1 + "" + o2;
+                String str2 = o2 + "" + o1;
+                return str1.compareTo(str2);
+            }
+        });
+
+        for (int i:list){
+            result += i;
+        }
+        return result;
+    }*/
+    //输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+    //例如输入数组{3，32，321}，则打印出这三个数字能排成的最小数字为321323。    END
+
+    //输入两个链表，找出它们的第一个公共结点。  START
+    /*class ListNode {
+        int val;
+        ListNode next = null;
+
+        ListNode(int val) {
+            this.val = val;
+        }
+    }
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+        HashMap<ListNode,Integer> map = new HashMap<>();
+        while (pHead1 != null){
+            map.put(pHead1,null);
+            pHead1 = pHead1.next;
+        }
+        while (pHead2 != null){
+            if (map.containsKey(pHead2)){
+                return pHead2;
+            }
+            pHead2 = pHead2.next;
+        }
+        return null;
+    }*/
+    //输入两个链表，找出它们的第一个公共结点。  END
+
+    //在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置 START
+    public int FirstNotRepeatingChar(String str){
+        if (str == null || str.length()==0){
+            return -1;
+        }
+        List<Character> list = new ArrayList<>();
+        for (int i=0;i<str.length();i++){
+            char a = str.charAt(i);
+            if (!list.contains(a)){
+                list.add(Character.valueOf(a));
+            }else {
+                list.remove(Character.valueOf(a));
+            }
+        }
+        if (list.size()<=0){
+            return -1;
+        }
+        return str.indexOf(list.get(0));
+    }
+
+    //在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置 END
 }
