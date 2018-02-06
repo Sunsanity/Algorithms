@@ -324,7 +324,7 @@ public class Test {
     //输入两个链表，找出它们的第一个公共结点。  END
 
     //在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置 START
-    public int FirstNotRepeatingChar(String str){
+    /*public int FirstNotRepeatingChar(String str){
         if (str == null || str.length()==0){
             return -1;
         }
@@ -341,7 +341,52 @@ public class Test {
             return -1;
         }
         return str.indexOf(list.get(0));
-    }
-
+    }*/
     //在一个字符串(1<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置 END
+
+    //统计一个数字在排序数组中出现的次数。    START
+    /*public int GetNumberOfK(int[] array,int k){
+        int count = 0;
+        for (int i=0;i<array.length;i++){
+            if (array[i] == k){
+                count++;
+            }
+        }
+        return count;
+    }*/
+    //统计一个数字在排序数组中出现的次数。    END
+
+    //汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。
+    //对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。
+    // 例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！  START
+    public String LeftRotateString(String str,int n) {
+        if(str.length() == 0){
+            return str;
+        }
+        StringBuffer sb = new StringBuffer(str);
+        StringBuffer sb1 = new StringBuffer(str);
+        StringBuffer sb2 = new StringBuffer();
+        sb.delete(0,n);
+        sb1.delete(n,str.length());
+        sb2.append(sb.append(sb1.toString()).toString());
+        return sb2.toString();
+    }
+    //汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。
+    //对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。
+    // 例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！  END
+
+    //"student. a am I" >>> “I am a student.” START     字符串翻转
+    public static String ReverseSentence(String str) {
+        String result = "";
+        List<String> list = new ArrayList<>();
+        String[] strs = str.split(" ");
+        for (int i=0;i<strs.length;i++){
+            list.add(0,strs[i]);
+        }
+        for (int i=0;i<list.size();i++){
+            result += list.get(i);
+        }
+        return result.substring(0,result.length()-1);
+    }
+    //"student. a am I" >>> “I am a student.” END
 }
